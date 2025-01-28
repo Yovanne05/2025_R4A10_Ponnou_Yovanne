@@ -1,4 +1,5 @@
 /* Style global pour le banner */
+
 #banner {
     display: flex;
     justify-content: space-between;
@@ -19,13 +20,21 @@
     gap: 1em;
 }
 
+header button{
+    display: none;
+}
+
 /* mobile */
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
 
 
     #banner_left {
         justify-content: flex-start;
         width: 100%;
+    }
+
+    header button{
+        display: inline;
     }
 
     #banner_right {
@@ -58,7 +67,7 @@
 }
 
 /* écrans à partir de 768px */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (width >= 1024px) and (width <= 1200px){
     #banner {
         flex-direction: row;
         justify-content: space-between;
@@ -85,24 +94,9 @@
     }
 }
 
-/* écrans à partir de 1024px */
-@media screen and (min-width: 1024px) and (max-width: 1200px) {
-    #allCard {
-        width: 768px;
-    }
-
-    .card {
-        width: 30%;
-        
-    }
-
-    .footer_part {
-        width: 23%;
-    }
-}
 
 /* écrans supérieurs à 1200px */
-@media screen and (min-width: 1200px) {
+@media screen and (width >=1200px) {
     #allCard {
         display: flex;
         flex-wrap: wrap;
@@ -110,7 +104,7 @@
 
     .card {
         margin: 2em;
-        width: 30%;
+        width: 25%;
     }
 
     .footer_part {
@@ -119,9 +113,17 @@
 }
 
 /* Styles carte global */
+
+#allCard {
+    justify-content: center;
+    align-items: center;
+}
+
 .card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 0.1em solid #000000;
     font-weight: bold;
     margin-bottom: 1em;
