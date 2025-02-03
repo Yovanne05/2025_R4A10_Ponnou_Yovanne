@@ -66,8 +66,8 @@ header button{
     }
 }
 
-/* écrans à partir de 768px */
-@media screen and (width >= 1024px) and (width <= 1200px){
+/* 768px - 1200px */
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     #banner {
         flex-direction: row;
         justify-content: space-between;
@@ -82,7 +82,8 @@ header button{
         flex-wrap: wrap;
         justify-content: center;
         gap: 1em;
-        width: 600px;
+    
+        margin: 0 auto;
     }
 
     .card {
@@ -95,7 +96,8 @@ header button{
 }
 
 
-/* écrans supérieurs à 1200px */
+
+/* > 1200px */
 @media screen and (width >=1200px) {
     #allCard {
         display: flex;
@@ -166,3 +168,18 @@ footer {
 .footer_part p {
     margin: 0.2em 0;
 }
+
+/* Style global logo */
+
+#logo {
+    background-color: #e4e4e4;
+    padding: 2em 3em;
+    display: inline-block;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
