@@ -1,3 +1,16 @@
+/* Style global logo */
+
+#logo {
+    background-color: #e4e4e4;
+    padding: 2em 3em;
+    display: inline-block;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
 /* Style global pour le banner */
 
 #banner {
@@ -26,7 +39,12 @@ header button{
 
 /* mobile */
 @media screen and (width <= 768px) {
-
+    #logo {
+        width: auto;
+        padding: 1em 2em;
+        display: block;
+        margin: 0 auto;
+    }
 
     #banner_left {
         justify-content: flex-start;
@@ -168,18 +186,5 @@ footer {
 .footer_part p {
     margin: 0.2em 0;
 }
-
-/* Style global logo */
-
-#logo {
-    background-color: #e4e4e4;
-    padding: 2em 3em;
-    display: inline-block;
-    width: 15%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 
 
