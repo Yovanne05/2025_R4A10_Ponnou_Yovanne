@@ -7,6 +7,6 @@ import { Component } from "@angular/core";
   styleUrl: './header.component.sass'
 })
 
-export class HeaderComponents {
-    title = 'tp2';
+export class HeaderComponents{
+  
 }
