@@ -1,6 +1,6 @@
-import { CardService } from "../type/CardService";
+import { Card } from "../type/Card";
 
-export const allCardServices: CardService[] = [
+export const allCardServices: Card[] = [
     {
         imageUrl: 'assets/search_doctor.png',
         title: 'Search doctor',

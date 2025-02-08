@@ -5,11 +5,12 @@ import {VirtualHealthcareComponent} from './components/virtual_healthcare/virtua
 import { OurServicesComponent } from './components/our_services/our_services.component';
 import { AllCardInfoComponent } from "./components/card_info/all_card_info/allCardInfo.component";
 import { AvisComponent } from './components/avis/avis.component';
+import { LatestArticleComponent } from "./components/latest_article/latest_article.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, VirtualHealthcareComponent, OurServicesComponent, AllCardInfoComponent, AvisComponent],
+  imports: [RouterOutlet, HeaderComponent, VirtualHealthcareComponent, OurServicesComponent, AllCardInfoComponent, AvisComponent, LatestArticleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })

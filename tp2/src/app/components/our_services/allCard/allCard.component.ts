@@ -1,5 +1,5 @@
 import { Component, Input} from "@angular/core";
-import { CardService } from "../../../type/CardService";
+import { Card } from "../../../type/Card";
 import { CommonModule } from "@angular/common";
 import { allCardServices } from "../../../data/AllCardServices";
 
@@ -12,6 +12,6 @@ import { allCardServices } from "../../../data/AllCardServices";
 })
 
 export class AllCardComponent {
-    @Input() cardServices: CardService[] = allCardServices;
+    @Input() cardServices: Card[] = allCardServices;
     
 }
