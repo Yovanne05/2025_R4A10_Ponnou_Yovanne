@@ -1,11 +1,12 @@
 import { Component } from "@angular/core";
 import {TitleComponent} from "./title/title.component";
 import { AllCardComponent } from "./allCard/allCard.component";
+import { LearnMoreComponent } from "./learn_more/learn_more.component";
 
 @Component({
   selector: 'our-services-root',
   standalone: true,
-  imports : [TitleComponent, AllCardComponent],
+  imports: [TitleComponent, AllCardComponent, LearnMoreComponent],
   templateUrl: './our_services.component.html',
   styleUrl: './our_services.component.sass'
 })
