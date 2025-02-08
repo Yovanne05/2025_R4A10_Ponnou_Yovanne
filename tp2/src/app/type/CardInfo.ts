@@ -4,7 +4,7 @@ type ButtonInfo = {
 }
 
 export type CardInfo = {
-    imagueUrl:string,
+    imageUrl:string,
     title:string,
     description:string,
     button:ButtonInfo
