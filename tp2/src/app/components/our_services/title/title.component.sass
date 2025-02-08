@@ -1,0 +1,56 @@
+* 
+    margin-top: 5px
+    margin-bottom: 5px
+
+p
+    color: #7D7987
+
+@media screen and (min-width: 1200px) 
+    .main-container
+        display: flex
+        justify-content: center
+        align-items: center
+
+    .services-container
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        width: 70%
+        padding: 20px
+
+    p
+        text-align: center
+
+    h1
+        font-weight: bold    
+
+    .separator
+        width: 10%
+        border: none
+        border-top: 2px solid #000
+        margin: 10px 0
+        align-self: center
+
+@media screen and (max-width: 600px) 
+    .main-container
+        padding: 10px 20px
+
+    .services-container
+        width: 100%
+        padding: 10px
+    
+    h1
+        font-size: 24px
+        text-align: center
+    
+    p
+        font-size: 14px
+        line-height: 1.5
+        text-align: center
+
+    .separator
+        width: 15%
+        margin: 10px auto
+        border: none
+        border-top: 2px solid #000
