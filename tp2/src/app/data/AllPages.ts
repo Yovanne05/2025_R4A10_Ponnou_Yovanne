@@ -4,4 +4,4 @@ export const allLinks = [
     { nom: "Apps", url: "#" },
     { nom: "Testimonials", url: "#" },
     { nom: "About us", url: "#" },
-  ];
+];
