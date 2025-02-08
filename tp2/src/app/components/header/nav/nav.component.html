@@ -1,15 +1,10 @@
 <nav>
-    <a href="#">
-        Home
+    <a 
+      *ngFor="let link of links" 
+      [href]="link.url" 
+    >
+     <!-- ngfor = for each -->
+      {{ link.nom }}
     </a>
-    <a href="#">
-        Find a doctor
-    </a>
-    <a href="#">
-        Apps
-    </a>
-    <a href="#">
-        Testimonials
-    </a>
-
-</nav>
+  </nav>
+  

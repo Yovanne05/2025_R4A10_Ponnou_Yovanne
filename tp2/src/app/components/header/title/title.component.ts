@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: 'title-root',
@@ -8,5 +8,5 @@ import { Component } from "@angular/core";
 })
 
 export class TitleComponent {
-  
+  @Input() title: string = "Trafalgar";
 }
