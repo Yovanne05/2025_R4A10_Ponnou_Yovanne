@@ -1,10 +1,11 @@
-import { Component, Input } from "@angular/core";
-import { CardService } from "../../../type";
-
+import { Component, Input} from "@angular/core";
+import { CardService } from "../../../type/cardService";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'allCard-root',
   standalone: true,
+  imports:[CommonModule],
   templateUrl: './allCard.component.html',
   styleUrl: './allCard.component.sass'
 })

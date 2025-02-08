@@ -1,4 +1,12 @@
-div
-  display: flex
-  justify-content: space-between
-  align-items: center
+@media screen and (width >= 1200px)
+  div
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+@media screen and (width <= 600px)
+  div
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column

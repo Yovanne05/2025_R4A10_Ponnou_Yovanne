@@ -1,0 +1,65 @@
+* 
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+  box-sizing: border-box
+
+.card-container
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 15px
+
+.card
+  display: flex
+  flex-direction: column
+  border-radius: 8px
+  padding: 10px
+  max-width: 250px
+  margin: 0 auto
+
+.card-image
+  width: 4em
+  margin-bottom: 10px
+
+.card-title
+  font-size: 1.2rem
+  font-weight: bold
+  margin-bottom: 10px
+
+.card-description
+  font-size: 0.9rem
+  color: #7D7987
+
+.first-row
+  grid-column: span 3
+
+.second-row
+  grid-column: span 3
+
+@media screen and (width <= 600px)
+  .card-container
+    display: grid
+    grid-template-columns: 1fr
+    gap: 10px
+    margin: 10px
+
+  .card
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 10px
+    max-width: 100%
+    margin: 0 auto
+
+  .card-image
+    width: 3em
+    margin-bottom: 10px
+
+  .card-title
+    font-size: 1rem
+    font-weight: bold
+    margin-bottom: 8px
+
+  .card-description
+    font-size: 0.8rem
+    color: #7D7987
+    text-align: center

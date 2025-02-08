@@ -1,0 +1,8 @@
+<div class="card-container">
+    <div class="card" *ngFor="let card of cardServices">
+      <img [src]="card.imageUrl" [alt]="card.title" class="card-image" />
+      <h3 class="card-title">{{ card.title }}</h3>
+      <p class="card-description">{{ card.description }}</p>
+    </div>
+  </div>
+  
