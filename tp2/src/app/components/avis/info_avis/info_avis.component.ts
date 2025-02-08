@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { allAvis } from "../../../data/AllAvis";
 import { Avis } from "../../../type/Avis";
 
 @Component({
@@ -11,12 +12,5 @@ import { Avis } from "../../../type/Avis";
 })
 
 export class InfoAvisComponent{
-  @Input() allAvis: Avis[] = [
-    {
-        imageUrl : "assets/profilpicture.png",
-        name: "Edward Newgate",
-        role:"Founder Circle",
-        description :"“Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedeous form, long calls, or administrative hassle) and securely”"
-    }
-  ]
+  @Input() allAvis: Avis[] = allAvis;
 }

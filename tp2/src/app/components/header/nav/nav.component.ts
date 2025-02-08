@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { allLinks } from "../../../data/AllPages";
+
 
 @Component({
   selector: 'nav-root',
@@ -9,10 +11,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './nav.component.sass'
 })
 export class NavComponent {
-  links = [
-    { nom: "Home", url: "#" },
-    { nom: "Find a doctor", url: "#" },
-    { nom: "Apps", url: "#" },
-    { nom: "Testimonials", url: "#" }
-  ];
+  links = allLinks;
 }
