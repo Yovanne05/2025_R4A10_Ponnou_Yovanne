@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import {TitleComponent} from "./title/title.component";
+import {TitleComponent} from "../title/title.component";
 import { AllCardComponent } from "./allCard/allCard.component";
 import { LearnMoreComponent } from "./learn_more/learn_more.component";
 
