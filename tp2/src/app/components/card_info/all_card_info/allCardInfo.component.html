@@ -5,8 +5,8 @@
             <h3 class="card-title">{{ card.title }}</h3>
             <hr class="separator">
             <p class="card-description">{{ card.description }}</p>
-            <a [href]="card.button.link">
-                <button>{{ card.button.title }}</button>
+            <a [href]="card.button.link" class="buttonCard">
+                <button-root [title]="card.button.title"/>
             </a>
         </div>
     </div>
