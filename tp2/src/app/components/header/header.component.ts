@@ -1,11 +1,12 @@
 import { Component } from "@angular/core";
-import { TitleComponent } from "./title/title.component";
+import { TitleSiteComponent } from "../title_site/title_site.component";
 import { NavComponent } from "./nav/nav.component";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'header-root',
   standalone: true,
-  imports : [TitleComponent, NavComponent],
+  imports : [TitleSiteComponent, NavComponent, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass'
 })
