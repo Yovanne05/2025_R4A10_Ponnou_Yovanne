@@ -1,18 +1,20 @@
 <div class="avis-container">
-    <div class="avis" *ngFor="let avis of allAvis">
-        <div class="avis-image">
-            <img [src]="avis.imageUrl" [alt]="avis.name" />
-        </div>
-        <div class="avis-text">
-            <div class="avis-name">
-                <h3>{{ avis.name }}</h3>
+    @for (avis of allAvis; track avis) {
+        <div class="avis">
+            <div class="avis-image">
+                <img [src]="avis.imageUrl" [alt]="avis.name" />
             </div>
-            <div class="avis-role">
-                <p>{{ avis.role }}</p>
+            <div class="avis-text">
+                <div class="avis-name">
+                    <h3>{{ avis.name }}</h3>
+                </div>
+                <div class="avis-role">
+                    <p>{{ avis.role }}</p>
+                </div>
+            </div>
+            <div class="avis-description">
+                <p>{{ avis.description }}</p>
             </div>
         </div>
-        <div class="avis-description">
-            <p>{{ avis.description }}</p>
-        </div>
-    </div>
+    }
 </div>

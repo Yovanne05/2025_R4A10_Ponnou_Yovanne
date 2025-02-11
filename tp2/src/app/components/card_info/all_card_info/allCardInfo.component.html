@@ -1,13 +1,15 @@
 <div class="card-container">
-    <div class="card" *ngFor="let card of cardServices">
-        <img [src]="card.imageUrl" [alt]="card.title" class="card-image" />
-        <div class="card-content">
-            <h3 class="card-title">{{ card.title }}</h3>
-            <hr class="separator">
-            <p class="card-description">{{ card.description }}</p>
-            <a [href]="card.button.link" class="buttonCard">
-                <button-root [title]="card.button.title"/>
-            </a>
+    @for (card of cardServices; track card) {
+        <div class="card">
+            <img [src]="card.imageUrl" [alt]="card.title" class="card-image" />
+            <div class="card-content">
+                <h3 class="card-title">{{ card.title }}</h3>
+                <hr class="separator">
+                <p class="card-description">{{ card.description }}</p>
+                <a [href]="card.button.link" class="buttonCard">
+                    <button-root [title]="card.button.title"></button-root>
+                </a>
+            </div>
         </div>
-    </div>
+    }
 </div>

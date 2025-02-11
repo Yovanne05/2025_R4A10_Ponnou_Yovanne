@@ -1,11 +1,8 @@
 <nav>
-    <a 
-      *ngFor="let link of links" 
-      [href]="link.url" 
-    >
-     <!-- ngfor = for each -->
-      {{ link.nom }}
-    </a>
-    <button>Menu</button>
-  </nav>
-  
+  @for (link of links; track link) {
+      <a [href]="link.url">
+          {{ link.nom }}
+      </a>
+  }
+  <button>Menu</button>
+</nav>
