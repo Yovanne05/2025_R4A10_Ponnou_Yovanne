@@ -1,0 +1,94 @@
+*
+    margin-top: 0.2em
+    margin-bottom: 0.2em
+    box-sizing: border-box
+
+.card
+    display: flex
+    align-items: center
+    width: 100%
+    padding: 20px
+    border-radius: 8px
+
+.card-image
+    height: auto
+
+.card-content
+    display: flex
+    flex-direction: column
+    text-align: left
+
+.card-title
+    font-size: 1.5rem
+    font-weight: bold
+    margin-bottom: 10px
+
+.card-description
+    font-size: 1rem
+    color: #555
+    margin-bottom: 15px
+
+.buttonCard-container 
+    display: flex
+    justify-content: flex-start
+
+
+.buttonCard 
+    text-decoration: none
+
+
+
+.separator
+    margin: 10px 0
+    align-self: left
+
+@media screen and (min-width: 1200px)
+    .card
+        justify-content: space-between
+
+    .card:nth-child(even) //even = position pair
+        flex-direction: row-reverse
+
+    .card:nth-child(odd) // odd = position impair
+        flex-direction: row
+
+    .card-image
+        max-width: 40%
+
+    .card-content
+        width: 35%
+        margin-right: 10em
+
+    .separator
+        width: 10%
+        border-top: 2px solid #000
+
+@media screen and (max-width: 600px)
+    .card
+        flex-direction: column-reverse
+        text-align: center
+        width: 90%
+        padding: 15px
+
+    .card-image
+        max-width: 80%
+        margin-bottom: 15px
+
+    .card-content
+        width: 90%
+
+    .card-title
+        font-size: 1.2rem
+        margin-bottom: 8px
+
+    .card-description
+        font-size: 0.9rem
+        margin-bottom: 12px
+
+    button
+        padding: 8px 25px
+        font-size: 14px
+        border-radius: 15px
+
+    .separator
+        width: 25%

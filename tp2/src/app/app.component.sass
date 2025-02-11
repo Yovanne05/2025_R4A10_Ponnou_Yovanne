@@ -1,16 +1,31 @@
-avis-root
-    display: block
+header-root
+    display: flex
+    align-items: center
+    justify-content: space-between
     padding: 20px
-    background: linear-gradient(to top, #5A98F2, #67C3F3)
-    border-radius: 20px
     width: 100%
-    box-sizing: border-box
-    
+
 @media screen and (width >= 1200px)
     main, header 
         margin: 0 8em
+
+    avis-root
+        max-width: 80%
+
+    virtual-healthcare-root
+        display: flex
+        justify-content: space-between
+        align-items: center
 
 @media screen and (width <= 600px)
     main, header 
         margin: 0 3em
 
+    avis-root
+        max-width: 100% 
+
+    virtual-healthcare-root
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column

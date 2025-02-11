@@ -1,20 +1,8 @@
-<div class="avis-container">
-    @for (avis of allAvis; track avis) {
-        <div class="avis">
-            <div class="avis-image">
-                <img [src]="avis.imageUrl" [alt]="avis.name" />
-            </div>
-            <div class="avis-text">
-                <div class="avis-name">
-                    <h3>{{ avis.name }}</h3>
-                </div>
-                <div class="avis-role">
-                    <p>{{ avis.role }}</p>
-                </div>
-            </div>
-            <div class="avis-description">
-                <p>{{ avis.description }}</p>
-            </div>
-        </div>
-    }
-</div>
+@for (avis of allAvis; track avis) {
+<article class="avis">
+    <img class="avis-image" [src]="avis.imageUrl" [alt]="avis.name" />
+    <h3 class="avis-name">{{ avis.name }}</h3>
+    <p class="avis-role">{{ avis.role }}</p>
+    <p class="avis-description">{{ avis.description }}</p>
+</article>
+}

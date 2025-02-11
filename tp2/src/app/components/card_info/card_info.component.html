@@ -1,3 +1,13 @@
-<div>
-    <all-card-info-root/>
-</div>
+@for (card of cardServices; track card) {
+    <article class="card">
+        <img [src]="card.imageUrl" [alt]="card.title" class="card-image" />
+        <section class="card-content">
+            <h3 class="card-title">{{ card.title }}</h3>
+            <hr class="separator">
+            <p class="card-description">{{ card.description }}</p>
+            <a [href]="card.button.link" class="buttonCard">
+                <button-blue-border-root [title]="card.button.title" />
+            </a>
+        </section>
+    </article>
+    }

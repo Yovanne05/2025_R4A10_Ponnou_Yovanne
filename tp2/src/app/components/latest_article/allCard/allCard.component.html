@@ -1,14 +1,10 @@
-<div class="cards-container">
-  @for (card of allCardLatestArticles; track card) {
-      <div class="card">
-          <div class="card-image">
-              <img [src]="card.imageUrl" alt="{{ card.title }}">
-          </div>
-          <div class="card-content">
-              <h3>{{ card.title }}</h3>
-              <p>{{ card.description }}</p>
-              <a [href]="card.button.link" class="read-more">{{ card.button.title }}</a>
-          </div>
-      </div>
-  }
-</div>
+@for (card of allCardLatestArticles; track card) {
+<article class="card">
+    <img class="card-image" [src]="card.imageUrl" alt="{{ card.title }}">
+    <section class="card-content">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+        <a [href]="card.button.link" class="read-more">{{ card.button.title }}</a>
+    </section>
+</article>
+}
