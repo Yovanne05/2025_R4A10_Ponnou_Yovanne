@@ -1,12 +1,12 @@
 import { Component, Input } from "@angular/core";
 import { CardInfo } from "../../../type/CardInfo";
 import { allCardInfo } from "../../../data/AllCardInfo";
-import { ButtonComponent } from "../../button/button.component";
+import { ButtonBlueBorderComponent } from "../../button_blueborder/button_blue_border.component";
 
 @Component({
     selector: 'all-card-info-root',
     standalone: true,
-    imports : [ButtonComponent],
+    imports : [ButtonBlueBorderComponent],
     templateUrl: './allCardInfo.component.html',
     styleUrl: './allCardInfo.component.sass'
 })

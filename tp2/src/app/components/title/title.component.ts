@@ -10,6 +10,6 @@ import { CommonModule } from "@angular/common";
 })
 
 export class TitleComponent {
-  @Input() title!: string;
+  @Input({required : true}) title!: string;
   @Input() globalColor: string = '#000';
 }
