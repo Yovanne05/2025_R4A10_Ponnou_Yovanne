@@ -5,8 +5,18 @@ header-root
     padding: 20px
     width: 100%
 
+app-footer
+    margin-top: 5em
+    background: linear-gradient(to top, #5A98F2, #67C3F3)
+    width: 100%
+    height: 50vh
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0
+
 @media screen and (width >= 1200px)
-    main, header 
+    main, header
         margin: 0 8em
 
     avis-root
@@ -18,14 +28,21 @@ header-root
         align-items: center
 
 @media screen and (width <= 600px)
-    main, header 
+    main, header
         margin: 0 3em
 
     avis-root
-        max-width: 100% 
+        max-width: 100%
 
     virtual-healthcare-root
         display: flex
         justify-content: center
         align-items: center
         flex-direction: column
+
+    app-footer
+        display: flex
+        justify-content: center
+        align-items: center
+        height: auto
+        flex-direction: column-reverse

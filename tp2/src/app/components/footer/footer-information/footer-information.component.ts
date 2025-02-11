@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { allInfoCompagny } from '../../../data/AllCompagnyInfo';
+import { InfoCompagny } from '../../../type/CompagnyInfo';
+
 
 @Component({
   selector: 'app-footer-information',
@@ -8,5 +11,5 @@ import { Component } from '@angular/core';
   styleUrl: './footer-information.component.sass'
 })
 export class FooterInformationComponent {
-
+  @Input() allInfoCompagny: InfoCompagny[] = allInfoCompagny;
 }
