@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, EventEmitter, Output } from "@angular/core";
 import { Avis } from "../../../type/Avis";
 import { allAvis } from "../../../data/AllAvis";
 
@@ -11,10 +11,14 @@ import { allAvis } from "../../../data/AllAvis";
 
 export class SwitchAvisComponent {
     allAvis: Avis[] = allAvis;
-    @Input() numPoints: number = this.allAvis.length;
 
-    get pointsArray() {
-        return new Array(this.numPoints);
+    @Output() nextAvis = new EventEmitter<number>();
+
+    emitNextAvis() {
+        this.nextAvis.emit(1);
     }
-    
+
+    emitPreviousAvis() {
+        this.nextAvis.emit(-1);
+    }
 }

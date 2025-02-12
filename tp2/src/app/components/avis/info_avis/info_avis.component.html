@@ -1,8 +1,8 @@
-@for (avis of allAvis; track avis) {
 <article class="avis">
-    <img class="avis-image" [src]="avis.imageUrl" [alt]="avis.name" />
-    <h3 class="avis-name">{{ avis.name }}</h3>
-    <p class="avis-role">{{ avis.role }}</p>
-    <p class="avis-description">{{ avis.description }}</p>
+    <img class="avis-image" [src]="currentAvis.imageUrl" [alt]="currentAvis.name" />
+    <section class = "avis-text">
+        <h3 class="avis-name">{{ currentAvis.name }}</h3>
+        <p class="avis-role">{{ currentAvis.role }}</p>
+    </section>
+    <p class="avis-description">{{ currentAvis.description }}</p>
 </article>
-}

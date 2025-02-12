@@ -1,5 +1,5 @@
 <div>
     <title-root [title]="'What our customer are saying'" [globalColor]="'#fff'"></title-root>
-    <info-avis-root />
+    <info-avis-root [avisIndex]="avisIndex"></info-avis-root>
 </div>
-<switch-avis-root />
+<switch-avis-root (nextAvis)="onAvisChange($event)"></switch-avis-root>
