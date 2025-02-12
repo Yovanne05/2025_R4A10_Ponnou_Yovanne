@@ -14,7 +14,7 @@ Créez le type HttpMethod, qui combine les valeurs suivantes (chaines de caract�
 Retenez ces verbes, ils sont utilisés aussi bien en backend qu'en frontend
 */
 
-// Implémentez ici
+type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 /*
 2. La Requête 
@@ -35,7 +35,14 @@ Créez le type associé
 A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utiliser any et nécessite un cast ultérieur vers la valeur souhaitée
 */
 
-// Implémentez ici
+type Requete = {
+    method: HttpMethod,
+    url: string,
+    params?: Array<string>,
+    query?: string | { [key: string]: string },
+    body?: { [key: string]: unknown },
+    headers: { "Content-Type": string } & { [key: string]: string }
+}
 
 /* 
 3. Guard
@@ -51,7 +58,9 @@ La fonction canActivate prend un paramètre, de type Request
 Retenez la notion de Guard, elle vous sera utile en Angular également
 */
 
-// Implémentez ici
+type Guard = {
+    canActivate: (request: Requete) => boolean | Promise<boolean>;
+};
 
 /*
 4. Interceptor 
@@ -64,7 +73,9 @@ Le type est également très simple, il contient une fonction intercept, qui ne 
 Angular utilise également la notion d'intercepteur, nous la verrons en troisième année
 */
 
-// Implémentez ici
+type Interceptor = {
+    intercept: (request: Requete) => void;
+}
 
 /*
 5. Déclarez un type ValidationSchema.
@@ -86,7 +97,14 @@ Le type ValidationSchema est constitué de deux propriétés:
 - required, un tableau de chaines de caractères, facultatif
 */
 
-// Implémentez ici
+type ValidationSchema = {
+    fields: {
+        [key: string]: {
+            [key: string]: unknown;
+        };
+    },
+    required?: string[]
+};
 
 /*
 6. La Route
@@ -103,12 +121,20 @@ Une route est composée des paramètres suivants:
 - responseInterceptors, une liste d'Interceptors, facultative
 
 Vous verrez tout ça plus en détail en cours d'Architecture et en troisième année
+*/
+
+type Route = {
+    path: string,
+    method: RequestMode,
+    handler: string,
+    guards?: Array<Guard>,
+    validationSchema?: ValidationSchema,
+    requestInterceptors?: Array<Interceptor>,
+    responseInterceptors?: Array<Interceptor>
+};
+
 /*
 
-// Implémentez ici
-
-
-/*
 7. La Réponse
 
 La réponse correspond à l'information obtenue après traitement de la requête. 
@@ -123,3 +149,9 @@ Notre réponse aura les propriétés suivantes:
 Angular gèrera une bonne partie de la réponse pour vous, il vous donnera directement accès au body, et propose un 
 système de gestion d'erreur.
 */
+
+type Reponse = {
+    statusCode: number,
+    headers: { "Content-type": string } & { [key: string]: unknown },
+    body?: { [key: string]: unknown }
+};
