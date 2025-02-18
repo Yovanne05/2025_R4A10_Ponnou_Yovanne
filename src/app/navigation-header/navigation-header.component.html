@@ -1,0 +1,7 @@
+<nav>
+    @for (link of links; track link) {
+        <a [href]="link.url">
+            {{ link.nom }}
+        </a>
+    }
+  </nav>
