@@ -9,6 +9,10 @@ export const routes: Routes = [
         path: ''
     },
     {
+        redirectTo: '',
+        path: 'home'
+    },
+    {
         component: GenerateTripsComponent,
         path: 'generateTrips'
     },
