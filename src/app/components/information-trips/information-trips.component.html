@@ -1,15 +1,19 @@
-<p>{{informationTrips?.destination}}</p>
-<p>{{informationTrips?.description}}</p>
-<p>{{informationTrips?.prix}}</p>
-<button (click)="onDeleteClick(informationTrips?.id!)">Supprimer</button>
+<div class="information">
+    <div class="container">
+        <p>{{informationTrips?.destination}}</p>
+        <p>{{informationTrips?.description}}</p>
+        <p>{{informationTrips?.prix}}</p>
+        <button (click)="onDeleteClick(informationTrips?.id!)">Supprimer</button>
+    </div>
+</div>
 
 @if (showDialog) {
-    <div class="overlay">
-      <div class="modal">
+<div class="overlay">
+    <div class="modal">
         <h2>Suppression</h2>
         <p>Voulez vous supprimez ce voyage</p>
         <button (click)="deleteTravel()">Oui</button>
         <button (click)="onDialogClose()">Annuler</button>
-      </div>
     </div>
-    }
+</div>
+}

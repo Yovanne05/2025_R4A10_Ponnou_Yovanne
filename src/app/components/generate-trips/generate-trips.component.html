@@ -1,9 +1,9 @@
-<button (click)="generateTravel()">Générer</button>
-<p>{{ newTravel?.destination }}</p>
-<p>{{ newTravel?.description }}</p>
-<p>{{ newTravel?.prix }}</p>
-
-@if(showAddTravelButton){
-    <button (click)="addTravelinToList()">Ajouter</button>
-}
-
+<div>
+    <button (click)="generateTravel()">Générer</button>
+    <p>Destination : {{ newTravel?.destination }}</p>
+    <p>Description : {{ newTravel?.description }}</p>
+    <p>Prix : {{ newTravel?.prix }}€</p>
+    @if(showAddTravelButton){
+        <button (click)="addTravelinToList()">Ajouter</button>
+    }
+</div>

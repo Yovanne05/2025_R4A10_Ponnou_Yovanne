@@ -1,19 +1,23 @@
-@for (travel of allTravels; track $index) {
-    <a (click)="onNavigation(travel.id)">
-        <p>{{travel.destination}}</p>
-        <p>{{travel.description}}</p>
-        <p>{{travel.prix}}</p>
-    </a>
-    <button (click)="onDeleteClick(travel.id)">Supprimer</button>
-}
+<div class="allTravels">
+    @for (travel of allTravels; track $index) {
+    <div class="container">
+        <a (click)="onNavigation(travel.id)">
+            <p>{{travel.destination}}</p>
+            <p>{{travel.description.slice(0, 20)}}</p>
+            <p>{{travel.prix}}</p>
+        </a>
+        <button (click)="onDeleteClick(travel.id)">Supprimer</button>
+    </div>
+    }
+</div>
 
 @if (showDialog) {
-    <div class="overlay">
-      <div class="modal">
+<div class="overlay">
+    <div class="modal">
         <h2>Suppression</h2>
         <p>Voulez vous supprimez ce voyage</p>
         <button (click)="deleteTravel()">Oui</button>
         <button (click)="onDialogClose()">Annuler</button>
-      </div>
     </div>
-    }
+</div>
+}

@@ -6,8 +6,12 @@
     padding: 0;
 }
 
+body{
+    height: 100%;
+}
+
 app-header {
-    background-color: #000;
+    background-color: #d4fffb;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,8 +26,8 @@ main {
 }
 
 app-footer {
-    background-color: #000;
-    color: white;
+    background-color: #d4fffb;
+    color: rgb(0, 0, 0);
     padding: 20px;
     text-align: center;
     font-size: 1.2em;

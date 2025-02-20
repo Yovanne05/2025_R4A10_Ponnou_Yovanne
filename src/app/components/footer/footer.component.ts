@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-
+  nom: string = 'Voyages';
+  currentYear: number = new Date().getFullYear();
 }
