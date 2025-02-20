@@ -1,4 +1,5 @@
-<p>{{ newTravel.destination }}</p>
-<p>{{ newTravel.description }}</p>
-<p>{{ newTravel.prix }}</p>
+<button (click)="generateTravel()">Générer</button>
+<p>{{ newTravel?.destination }}</p>
+<p>{{ newTravel?.description }}</p>
+<p>{{ newTravel?.prix }}</p>
 <button (click)="addTravelinToList()">Ajouter</button>

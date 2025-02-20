@@ -6,8 +6,12 @@ import { Travel } from "../type/Travel";
     providedIn:'root'
 })
 
-export class TravelsSerivce {
+export class TravelSerivce {
     private allTravels: Travel[] = [];
+
+    getAllTravels(): Travel[]{
+        return this.allTravels;
+    }
 
     createTravel(): Travel {
         const newTravel: Travel = {
@@ -29,7 +33,7 @@ export class TravelsSerivce {
         return id;
     }
 
-    supprimerTravel(id: string) {
+    deleteTravel(id: string) {
         this.allTravels = this.allTravels.filter(travel => travel.id !== id);
     }
 

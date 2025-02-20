@@ -10,7 +10,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavigationHeaderComponent {
   links = [
-    { nom: "All Travels", url: "allTravels" },
     { nom: "Generate Trips", url: "generateTrips" }
   ];
 }

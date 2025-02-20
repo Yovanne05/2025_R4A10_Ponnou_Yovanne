@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TravelsSerivce } from '../../../services/Travels_service';  // Corrigé le nom du service
+import { Component } from '@angular/core';
+import { TravelSerivce } from '../../../services/Travels_service';
 import { Travel } from '../../../type/Travel';
 
 @Component({
@@ -9,19 +9,19 @@ import { Travel } from '../../../type/Travel';
   templateUrl: './generate-trips.component.html',
   styleUrl: './generate-trips.component.scss'
 })
+export class GenerateTripsComponent {
+  newTravel: Travel | null = null;
 
-export class GenerateTripsComponent implements OnInit {
+  constructor(private travelService: TravelSerivce) { }
 
-  newTravel!: Travel;
-
-  constructor(private travelService: TravelsSerivce) { }
-
-  ngOnInit(): void {
+  generateTravel() {
     this.newTravel = this.travelService.createTravel();
   }
 
-  addTravelinToList(){
-    this.travelService.addTravel(this.newTravel);
+  addTravelinToList() {
+    if (this.newTravel) {
+      this.travelService.addTravel(this.newTravel);
+      this.newTravel = null;
+    }
   }
-  
 }

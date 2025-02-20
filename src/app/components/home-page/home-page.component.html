@@ -1,1 +1,8 @@
-<p>home-page works!</p>
+<a>
+    @for (travel of allTravels; track $index) {
+    <p>{{travel.destination}}</p>
+    <p>{{travel.description}}</p>
+    <p>{{travel.prix}}</p>
+    <button (click)="deleteTravel(travel.id)">Supprimer</button>
+    }
+</a>
