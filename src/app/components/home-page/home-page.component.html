@@ -1,8 +1,8 @@
-<a>
-    @for (travel of allTravels; track $index) {
+@for (travel of allTravels; track $index) {
+<a [routerLink]="['/informationTrips', travel.id]" routerLinkActive="active">
     <p>{{travel.destination}}</p>
     <p>{{travel.description}}</p>
     <p>{{travel.prix}}</p>
-    <button (click)="deleteTravel(travel.id)">Supprimer</button>
-    }
 </a>
+<button (click)="deleteTravel(travel.id)">Supprimer</button>
+}

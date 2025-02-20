@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Travel } from '../../../type/Travel';
 import { TravelSerivce } from '../../../services/Travels_service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
