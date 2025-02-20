@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TravelSerivce } from '../../../services/Travels_service';
 import { Travel } from '../../../type/Travel';
 
@@ -11,10 +11,15 @@ import { Travel } from '../../../type/Travel';
   styleUrl: './information-trips.component.scss'
 })
 export class InformationTripsComponent implements OnInit {
+
   id?: string;
   informationTrips?: Travel;
 
-  constructor(private readonly activatedRoute: ActivatedRoute, private travelService: TravelSerivce) { }
+  allTravels: Travel[] = [];
+  showDialog: boolean = false;
+  selectedID: string | null = null;
+
+  constructor(private readonly activatedRoute: ActivatedRoute, private travelService: TravelSerivce, private readonly router: Router) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id')!;
@@ -23,7 +28,19 @@ export class InformationTripsComponent implements OnInit {
     }
   }
 
-  deleteTravel(id: string){
-    
+  onDeleteClick(id: string){
+    this.showDialog = true;
+    this.selectedID = id;
+  }
+
+  onDialogClose() {
+    this.showDialog = false;
+    this.selectedID = null;
+  }
+
+  deleteTravel() {
+    this.travelService.deleteTravel(this.selectedID!);
+    this.onDialogClose();
+    this.router.navigate(['']);
   }
 }

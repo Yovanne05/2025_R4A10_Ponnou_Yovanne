@@ -1,8 +1,19 @@
 @for (travel of allTravels; track $index) {
-<a [routerLink]="['/informationTrips', travel.id]" routerLinkActive="active">
-    <p>{{travel.destination}}</p>
-    <p>{{travel.description}}</p>
-    <p>{{travel.prix}}</p>
-</a>
-<button (click)="deleteTravel(travel.id)">Supprimer</button>
+    <a (click)="onNavigation(travel.id)">
+        <p>{{travel.destination}}</p>
+        <p>{{travel.description}}</p>
+        <p>{{travel.prix}}</p>
+    </a>
+    <button (click)="onDeleteClick(travel.id)">Supprimer</button>
 }
+
+@if (showDialog) {
+    <div class="overlay">
+      <div class="modal">
+        <h2>Suppression</h2>
+        <p>Voulez vous supprimez ce voyage</p>
+        <button (click)="deleteTravel()">Oui</button>
+        <button (click)="onDialogClose()">Annuler</button>
+      </div>
+    </div>
+    }
