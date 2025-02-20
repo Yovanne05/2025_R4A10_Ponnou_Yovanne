@@ -2,6 +2,8 @@
 
 * {
     font-family: 'Bebas Neue', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 app-header {
@@ -12,9 +14,18 @@ app-header {
     padding: 40px;
 }
 
-.container {
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-top: 2em;
+main {
+    flex: 1;
+    margin: 2em;
     border: 1px solid #000;
+    padding: 2em;
+}
+
+app-footer {
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    display: block;
 }
