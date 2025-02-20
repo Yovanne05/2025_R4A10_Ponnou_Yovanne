@@ -10,18 +10,22 @@ import { Travel } from '../../../type/Travel';
   styleUrl: './generate-trips.component.scss'
 })
 export class GenerateTripsComponent {
+
   newTravel: Travel | null = null;
+  showAddTravelButton: boolean=false;
 
   constructor(private travelService: TravelSerivce) { }
 
   generateTravel() {
     this.newTravel = this.travelService.createTravel();
+    this.showAddTravelButton = true;
   }
 
   addTravelinToList() {
     if (this.newTravel) {
       this.travelService.addTravel(this.newTravel);
       this.newTravel = null;
+      this.showAddTravelButton = false;
     }
   }
 }

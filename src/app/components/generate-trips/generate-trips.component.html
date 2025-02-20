@@ -2,4 +2,8 @@
 <p>{{ newTravel?.destination }}</p>
 <p>{{ newTravel?.description }}</p>
 <p>{{ newTravel?.prix }}</p>
-<button (click)="addTravelinToList()">Ajouter</button>
+
+@if(showAddTravelButton){
+    <button (click)="addTravelinToList()">Ajouter</button>
+}
+
