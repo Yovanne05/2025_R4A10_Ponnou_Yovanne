@@ -18,9 +18,12 @@ export class InformationTripsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id')!;
-  
     if (this.id) {
       this.informationTrips = this.travelService.getTravelById(this.id);
     }
+  }
+
+  deleteTravel(id: string){
+    
   }
 }

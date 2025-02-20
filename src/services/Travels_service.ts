@@ -38,7 +38,7 @@ export class TravelSerivce {
     }
 
     getTravelById(id: string){
-        return this.allTravels.filter(travel => travel.id == id);
+        return this.allTravels.filter(travel => travel.id == id)[0];
     }
 
 }
