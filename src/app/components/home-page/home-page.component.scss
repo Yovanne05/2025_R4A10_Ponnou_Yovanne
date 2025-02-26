@@ -6,11 +6,12 @@
     margin: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .allTravels {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-items: center;
     margin-top: 20px;
@@ -75,4 +76,29 @@ p {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+.container-top {
+  flex-grow: 1;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: white;
+}
+
+.boutton-supr{
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
 }

@@ -12,15 +12,27 @@ import { Router } from '@angular/router';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
-  
+
   allTravels: Travel[] = [];
   showDialog: boolean = false;
   selectedID: string | null = null;
+
+  currentPage: number = 1;
+  travelsPerPage: number = 20;
+  pagedTravels: Travel[] = [];
+
 
   constructor(
     private readonly travelService: TravelSerivce,
     private readonly router: Router,
   ) { }
+
+  updatePagedTravels() {
+    const startIndex = (this.currentPage - 1) * this.travelsPerPage;
+    const endIndex = startIndex + this.travelsPerPage;
+    this.pagedTravels = this.allTravels.slice(startIndex, endIndex);
+  }
+
 
   ngOnInit(): void {
     this.loadTravels();
@@ -38,7 +50,23 @@ export class HomePageComponent implements OnInit {
 
   loadTravels() {
     this.allTravels = this.travelService.getAllTravels();
+    this.updatePagedTravels();
   }
+
+  nextPage() {
+    if (this.currentPage * this.travelsPerPage < this.allTravels.length) {
+      this.currentPage++;
+      this.updatePagedTravels();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatePagedTravels();
+    }
+  }
+
 
   deleteTravel() {
     this.travelService.deleteTravel(this.selectedID!);
