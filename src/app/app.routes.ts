@@ -7,23 +7,32 @@ import { OrderListPageComponent } from "./features/orders/pages/order-list-page/
 
 export const routes: Routes = [
   {
-    path: "",
+    path: '',
+    redirectTo: 'pizzas',
+    pathMatch: 'full',
+  },
+  {
+    path: "pizzas",
     component: PizzaListPageComponent,
   },
   {
-    path: "pizza/:name",
+    path: "pizza/:slug",
     component: SinglePizzaComponent,
   },
   {
-    path: "/commander",
+    path: "commander",
     component: OrderPizzaPageComponent,
   },
   {
-    path: "/commandes",
+    path: "commandes",
     component: OrderListPageComponent,
   },
   {
     path: "**",
-    component: NotFoundComponent,
+    redirectTo: '404'
   },
+  {
+    path: '404',
+    component: NotFoundComponent,
+  }
 ];

@@ -1,1 +1,63 @@
-<p>DOMINO'S VAINCRA</p>
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="pizza">Pizza</label>
+        <select id="pizza" formControlName="pizza">
+            @for (pizza of pizzas; track $index) {
+            <option [value]="pizza.id">
+                {{ pizza.name }}
+            </option>
+            }
+
+        </select>
+        @if (pizzaControl?.invalid && pizzaControl?.touched) {
+        <div class="err">
+            <p>La pizza est obligatoire.</p>
+        </div>
+        }
+    </div>
+
+    <div>
+        <label for="size">Taille</label>
+        <select id="size" formControlName="size">
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xxl">XXL</option>
+        </select>
+        @if (sizeControl?.invalid && sizeControl?.touched) {
+        <div class="err">
+            <p>La taille est obligatoire.</p>
+        </div>
+        }
+    </div>
+
+    <div>
+        <label for="paymentMethod">Moyen de paiement</label>
+        <select id="paymentMethod" formControlName="paymentMethod">
+            <option value="cash">Espèces</option>
+            <option value="card">Carte Bleue</option>
+            <option value="bitcoin">Bitcoin</option>
+        </select>
+        @if (paymentMethodControl?.invalid && paymentMethodControl?.touched) {
+        <div class="err">
+            <p>Le moyen de paiement est obligatoire.</p>
+        </div>
+        }
+    </div>
+
+    <div>
+        <label for="email">Adresse email</label>
+        <input id="email" formControlName="email" type="email" />
+        @if (emailControl?.invalid && emailControl?.touched) {
+        <div class="err">
+            @if (emailControl?.hasError('required')) {
+            <p>L'email est requis.</p>
+            }
+            @else if (emailControl?.hasError('email')) {
+            <p>L'email n'est pas valide.</p>
+            }
+        </div>
+        }
+    </div>
+
+    <button type="submit" [disabled]="orderForm.invalid">Commander maintenant</button>
+</form>

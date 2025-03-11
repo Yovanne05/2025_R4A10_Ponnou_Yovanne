@@ -22,12 +22,18 @@ export class OrderLocalService implements OrderService {
   }
 
   create(data: CreateOrder): Observable<Order> {
-    const newOrder = { ...data, id: Math.random().toString().replace('.', '') };
-    this.$orders.next([...this.$orders.getValue(), newOrder]);
+    const newOrder: Order = {
+      ...data,
+      id: Math.random().toString().replace('.', ''),
+    };
+
+    const updatedOrders = [...this.$orders.getValue(), newOrder];
+    this.$orders.next(updatedOrders);
     return of(newOrder);
   }
 
-  remove(id: string) {
-    this.$orders.next(this.$orders.getValue().filter((o) => o.id !== id));
+  remove(id: string): void {
+    const updatedOrders = this.$orders.getValue().filter((o) => o.id !== id);
+    this.$orders.next(updatedOrders);
   }
 }

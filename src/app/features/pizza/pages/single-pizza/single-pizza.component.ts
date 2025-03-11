@@ -1,26 +1,40 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PizzasService } from '../../../../services/pizzas.service';
+import { Pizza } from '../../../../models/pizza';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-single-pizza',
   standalone: true,
-  imports: [CurrencyPipe, CommonModule],
+  imports: [CurrencyPipe, CommonModule, RouterLink],
   templateUrl: './single-pizza.component.html',
   styleUrl: './single-pizza.component.css',
 })
-export class SinglePizzaComponent {
-  pizza = {
-    name: 'Végétarienne',
-    image:
-      'https://tse2.mm.bing.net/th?id=OIP.eSDxUs3uRMdNtz74mfFzNAHaEU&pid=Api',
-    description: 'Un mélange délicieux de légumes frais et de fromage.',
-    ingredients: ['Tomate', 'Mozzarella', 'Poivrons', 'Champignons', 'Oignons'],
-    price: 9.99,
-    rating: 3,
-  };
+export class SinglePizzaComponent implements OnInit {
 
+  pizza: Pizza | undefined;
+
+  constructor(
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly pizzasService: PizzasService,
+    private readonly router: Router
+  ) {}
+
+  ngOnInit(): void {
+    const slug = this.activatedRoute.snapshot.paramMap.get('slug');
+    if (slug) {
+      this.pizza = this.pizzasService.getPizzaBySlug(slug);
+    }
+  }
+
+  
   get stars(): number[] {
+    if (!this.pizza) {
+      return [];
+    }
     return Array(this.pizza.rating).fill(0);
   }
 }

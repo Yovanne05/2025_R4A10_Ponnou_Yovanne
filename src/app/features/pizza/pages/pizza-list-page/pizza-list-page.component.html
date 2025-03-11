@@ -7,7 +7,7 @@
     <p class="ingredients">Ingrédients: {{ pizza.ingredients.join(', ') }}</p>
     <p class="price">{{ pizza.price | currency:'EUR' }}</p>
     <p class="stars">{{ getStars(pizza.rating).join(' ') }}</p>
-    <a [href]="formatPizzaUrl(pizza.name)">Voir la pizza</a>
+    <a (click)="onNavigation(pizza.slug)">Voir la pizza</a>
   </li>
   } @empty {
   <li>Aucune Pizza</li>

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Order } from '../../../../models/order';
+import { OrderLocalService } from '../../../../services/order.service';
 
 @Component({
   selector: 'app-order-card',
@@ -9,7 +10,12 @@ import { Order } from '../../../../models/order';
   styleUrl: './order-card.component.css',
 })
 export class OrderCardComponent {
-  removeOrder() {}
+
+  constructor(private readonly orderService: OrderLocalService) {}
 
   @Input({required : true}) order!: Order;
+
+  removeOrder() {
+    this.orderService.remove(this.order.id);
+  }
 }

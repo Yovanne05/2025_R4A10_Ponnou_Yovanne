@@ -6,9 +6,9 @@
     </button>
     <nav [class.open]="isMenuOpen">
       <ul>
-        <li><a href="/pizzas">Nos Pizzas</a></li>
-        <li><a href="/commande">Commander</a></li>
-        <li><a href="/commandes">Commandes en cours</a></li>
+        <li><a [routerLink]="'/pizzas'" routerLinkActive="active">Nos Pizzas</a></li>
+        <li><a [routerLink]="'/commander'" routerLinkActive="active">Commander</a></li>
+        <li><a [routerLink]="'/commandes'" routerLinkActive="active">Commandes en cours</a></li>
       </ul>
     </nav>
   </div>
