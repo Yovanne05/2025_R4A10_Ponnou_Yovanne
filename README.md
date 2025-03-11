@@ -1,134 +1,105 @@
-# TP Angular - Agence de voyages
+**# Scénario : Le Stage Chez Mario, Maître Pizzaiolo**
 
-## Objectif
+---
 
-Créer une application Angular permettant de gérer des voyages, incluant une liste paginée, la visualisation individuelle des voyages, leur suppression, ainsi qu'un système de génération automatique de voyages.
+## **Benvenuto Chez Mario !**
 
-## Spécifications fonctionnelles
+Après des mois de recherches intensives, des candidatures sans réponse, et des entretiens interminables, tu as enfin trouvé un stage !
 
-### Un voyage se compose des propriétés suivantes :
+Te voici fraîchement embauché chez **Mario**, un pizzaiolo de renom dont les recettes de pizza ont fait le tour du monde. Son restaurant attire des clients par dizaines chaque jour, et son application permettait aux gourmands de commander leurs pizzas favorites en ligne...
 
-- **destination** : chaîne de caractères
-- **description** : chaîne de caractères
-- **prix** : nombre
-- **id (unique)** : chaîne de caractères (utilisez `Math.random()` pour générer un identifiant, vous le transformerez en chaine de caractères et retirerez le "." car Math.random() est un float)
+**MAIS MAMMA MIA !**
 
-### Fonctionnalités demandées :
+Le développeur précédent, avant de partir travailler pour **Domino’s**, a saboté l’application. Un vrai carnage. L'interface est brisée, les commandes ne passent plus, et même les pizzas refusent de s'afficher correctement.
 
-- **Page d'accueil `/home`**
+**C'est à toi de sauver l'application et d'aider Mario à retrouver son empire pizzeria !**
 
-  - Par défaut, l'application doit rediriger vers `/home` (ex: `http://localhost:4200` → `http://localhost:4200/home`).
-  - Affichage d’une liste de voyages sous forme de **cartes**.
-  - Chaque carte permet :
-    - De naviguer vers une page dédiée au voyage.
-    - De supprimer le voyage directement depuis la liste.
-  - Chaque carte affiche également:
-    - La destination
-    - Les 20 premiers caractères de la description (slicée avec le SlicePipe)
-    - Le prix en € (vous utiliserez également un pipe pour cette mise en forme)
+---
 
-- **Pagination**
+## **Mission 1 : Réparer l’application (4 points)**
 
-  - Affichage des voyages **20 par 20** pour éviter de surcharger la page.
+Mario a tenté de relancer l’application, mais une erreur est apparue :
 
-- **Page dédiée à chaque voyage**
+> _"NG9: Property 'order' does not exist on type 'OrderCardComponent'."_
 
-  - Permet de visualiser toutes les informations d’un voyage.
-  - Possibilité de supprimer le voyage directement depuis cette page.
-  - En cas de suppression depuis cette page, redirection vers l’accueil après confirmation.
+**C'est un véritable cauchemar !** Mario est paniqué. Il se souvient que tout fonctionnait avant, mais le développeur a laissé des dégâts.
 
-- **Page de génération de voyage**
+### **Ta mission :**
 
-  - Un bouton **"Générer"** sélectionne au hasard une destination, une description et un prix.
-  - Les informations disponibles à utiliser sont dans le fichier data.ts
-  - Le voyage généré est affiché à l'écran, avec un bouton permettant de valider la création
-  - Si validé, le voyage est ajouté à la fin du tableau des destinations, puis l'utilisateur est redirigé vers la page dédiée au voyage.
+1. **Restaurer la communication entre les composants.** Le contenu de la commande doit bien être envoyé à la carte de commande afin d'éviter cette erreur.
+2. **Réparer le bouton supprimer**. Chaque carte comporte un bouton pour retirer une commande, mais le parent ne reçoit plus cette information. Il faut faire en sorte que l’ID de la commande soit correctement transmis.
 
-- **Suppression**
+---
 
-  - Avant chaque suppression, une **boîte de dialogue (modal)** demande confirmation.
-  - Si la suppression se fait depuis la page du voyage, l’utilisateur est **redirigé vers l’accueil** après confirmation.
+## **Mission 2 : Remettre en ordre le Router (4 points)**
 
-- **Gestion des routes invalides**
-  - Mise en place d’une **page 404** pour capter toutes les routes inexistantes.
+Mario a beau redémarrer son application, la page principale ne charge pas les pizzas. Seuls le header et le footer apparaissent.
 
-## Layout et Design
+**Mamma mia, où sont passées mes belles pizzas ?!**
 
-- **Header & Footer présents sur toutes les pages**
+### **Objectifs :**
 
-  - **Header** : Nom de l’application et navigation entre :
-    - La page liste des voyages.
-    - La page de génération de voyages.
-  - **Footer** :
-    - Reprend le nom de l’agence de voyage.
-    - Mention "Copyright + Année en cours" (généré dynamiquement en JS).
+1. **Réparer la configuration du router** pour que la liste des pizzas apparaisse correctement.
+2. **Corriger la redirection vers la page "Commander"**, qui renvoie actuellement une 404.
+3. **Corriger le lien "Nos pizzas"**, qui semble avoir une erreur d’URL et qui doit rediriger vers la liste des pizzas.
+4. **Corriger les propriétés des liens** pour qu’elles respectent les standards Angular.
 
-- **Responsive**
+---
 
-  - Adaptation requise uniquement pour les **écrans supérieurs à 1200px**.
-  - Les autres tailles d’écran ne sont pas à prendre en compte pour ce TP.
+## **Mission 3 : Afficher la bonne pizza (7 points)**
 
-- **Utilisation d'un framework CSS (au choix)**
+Désormais, la navigation fonctionne, mais un problème persiste : peu importe la pizza que l’on sélectionne, c’est toujours la même qui s’affiche. **Che disastro !**
 
-  - Vous pouvez utiliser :
-    - **Bootstrap (ngx-bootstrap)**
-    - **Angular Material (ng-material)**
-    - **Tailwind**
-    - **Ou un autre outil de design de votre choix**
+### **Actions à mener :**
 
-- **Images**
-  - Vous pouvez ajouter des images pour illustrer les voyages.
+1. **Centraliser les pizzas.** La liste des pizzas doit être accessible sur toutes les pages.
+2. **Définir un type Pizza.** Il faut un type clair pour s’assurer que chaque pizza a bien ses propriétés.
+3. **Afficher la pizza correcte.** Récupérer dynamiquement le nom de la pizza depuis l’URL et afficher celle correspondante. Si elle n’existe pas, rediriger vers une 404. Il faudra certainement modifier un peu la chaîne pour faire une comparaison. Si un nom de pizza comporte un espace, il est transformé en "-" dans son url. Exemple: Une pizza nommée "Quatre Saisons" aurait pour slug quatre-saisons
+4. **Moderniser le HTML.** L’affichage des ingrédients ne respecte pas les standards Angular, et le code semble être une horreur générée par une IA. Adapte le template html de la page permettant de visualiser une seule pizza avec des standards Angular modernes. D'autant que dans son état actuel, la page n'affiche pas toute les informations.
+5. **Corriger le bouton "Commander maintenant"** afin qu’il redirige bien vers la page de commande.
 
-## Bonus
+---
 
-- Un bonus est accordé si vous mettez en place la **sauvegarde des voyages** dans `localStorage` pour **conserver la liste entre les sessions**.
-  - Documentation : [localStorage sur MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+## **Mission 4 : Refaire le formulaire de commande (3 points)**
 
-## Évaluation
+Le formulaire de commande est un désastre. Impossible de commander une pizza ! **Mario est au bord de la crise de nerfs.**
 
-Vous serez notés sur :
+### **Champs à implémenter :**
 
-- **Les fonctionnalités principales**
-- **La qualité de votre syntaxe Angular (attention avec GPT)**
-- **La structuration en composants Angular et leur communication**
-- **La gestion du routing**
-- **La centralisation de la logique (services, etc.)**
-- **Le rendu global de l’application**
+- **Pizza** : Une sélection parmi les pizzas existantes.
+- **Taille** : Medium, Large ou XXL.
+- **Moyen de paiement** : Espèces, Carte Bleue ou Bitcoin.
+- **Adresse email** : Avec une validation stricte du fait que c'est bien un email.
 
-## Conseils pour la réalisation
+Tous ces champs sont obligatoires. Une fois le formulaire soumis, il doit appeler le **OrderService** pour enregistrer la commande.
 
-1. **Créer les différentes pages**
-   - Configurer le router Angular et tester la navigation
-2. **Définir le service et le type `Voyage`**
+_(Choix libre entre template-driven et reactive forms)_
 
-   - Stocker les voyages dans un tableau dans un service centralisé.
+---
 
-3. **Ajouter une entrée test**
+## **Mission 5 : Rendre le service de commande plus fiable (2 points)**
 
-   - Créer manuellement une entrée dans la liste des voyages pour tester l'affichage.
+Mario remarque un autre souci : en naviguant rapidement entre les pages, l’application finit par mal gérer les commandes, et elle ralentit, sûrement un problème dans la gestion des données.
 
-4. **Mettre en place le layout (header/footer)**
+**Mario lève les bras au ciel : "Non, non, non ! Ce n’est pas possible !"**
 
-   - Assurez-vous que le design de base est cohérent.
+### **Actions à mener :**
 
-5. **Implémenter le parcours utilisateur**
+1. **Corriger les Observables** du **OrderService** pour éviter ces problèmes de fiabilité.
+2. **Préparer la transition vers une API Flask.** L’API sera bientôt disponible, mais il faut déjà créer un **OrderAPIService** qui implémente **OrderService** et utilise le client HTTP.
 
-   - Afficher la liste des voyages.
-   - Permettre la navigation vers les détails d'un voyage.
-   - Ajouter la suppression et tester la redirection.
+L’API aura les routes suivantes :
 
-6. **Gérer la génération automatique**
+- `GET /orders`
+- `POST /orders` (avec un body de type `CreateOrder`)
+- `DELETE /orders/:id`
 
-   - Implémenter la génération de voyages aléatoires.
-   - Afficher les informations générées avant validation.
+L’URL du serveur (fictif) sera **http://localhost:5000/api**. Les entrées et réponses suivront les mêmes types que celles de **OrderLocalService**.
 
-7. **Gérer la pagination sur la liste des voyages**
+Mario fera le test directement avec le nouveau service, il ne faudra bien que toutes les dépendances soient appelables.
 
-   - Afficher les voyages **par lot de 20**.
+---
 
-8. **Implémenter la suppression avec confirmation**
+## **Conclusion**
 
-   - Ajouter une **boîte de dialogue (modal)** avant suppression.
-
-9. **Refactoriser en composants**
-   - Découper l'application en composants réutilisables et bien organisés.
+Si tu arrives à réparer tout ça, Mario pourra enfin retrouver la gloire de sa pizzeria en ligne, et toi, tu auras prouvé ta valeur en tant que développeur. Qui sait, peut-être que ton stage deviendra un CDI... à condition que tu ne partes pas chez Domino’s à ton tour !
